@@ -1,0 +1,21 @@
+# Segreti: mai nel repository
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+*.pem
+*.key
+*.secret
+*.secrets
+
+# Dipendenze, build, cache locali di Wrangler
+node_modules/
+.wrangler/
+dist/
+worker-configuration.d.ts
+
+# Varie
+*.log
+.DS_Store
+wrangler.jsonc

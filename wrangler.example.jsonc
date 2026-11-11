@@ -1,0 +1,32 @@
+// Copy this file to wrangler.jsonc (git-ignored) and replace the three placeholders.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "private-google-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  // No request or content logging, on purpose.
+  "observability": { "enabled": false },
+  "vars": {
+    // Public URL of YOUR deployed Worker, ending in /mcp. It is the audience of the issued tokens.
+    "PUBLIC_MCP_URL": "https://private-google-mcp.<your-subdomain>.workers.dev/mcp",
+    // OAuth Client ID of YOUR Google Cloud project (public by nature; the client secret is not).
+    "GOOGLE_CLIENT_ID": "<your-client-id>.apps.googleusercontent.com"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      // Create it with: npx wrangler kv namespace create OAUTH_KV
+      "id": "<your-kv-namespace-id>"
+    }
+  ],
+  // State of pending confirmations: Durable Object with SQLite storage (available on the Free plan).
+  "durable_objects": {
+    "bindings": [{ "name": "ACTIONS", "class_name": "ActionsDO" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ActionsDO"] }]
+  // Secrets (GATE1_PASSPHRASE, CONFIRM_PASSPHRASE, GOOGLE_CLIENT_SECRET, GOOGLE_ALLOWED_EMAIL)
+  // are NOT stored here: set them with `npx wrangler secret put <NAME>`.
+}

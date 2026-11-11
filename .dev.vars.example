@@ -1,0 +1,8 @@
+# Copy to ".dev.vars" (git-ignored) for local development. Use dummy values only.
+# Long, random passphrase. It is NOT your Google or Cloudflare password: it protects the OAuth consent page.
+GATE1_PASSPHRASE=REPLACE_WITH_A_LONG_RANDOM_PASSPHRASE
+# Public URL the Worker uses as the token audience when running locally (not a secret).
+PUBLIC_MCP_URL=http://localhost:8787/mcp
+# Dummy values for local runs; in production these are Cloudflare secrets.
+GOOGLE_CLIENT_SECRET=DUMMY
+GOOGLE_ALLOWED_EMAIL=first.last@example.com

@@ -1,0 +1,38 @@
+{
+  "name": "claude-gmail-connector",
+  "version": "0.5.1",
+  "private": true,
+  "description": "Remote MCP server on Cloudflare Workers that connects Claude to one private Gmail account, with out-of-band confirmation for risky actions.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node scripts/smoke-test.mjs",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/*.test.mts"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "^1.2.1",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "agents": "^0.26.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261004.1",
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.147.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "claude",
+    "gmail",
+    "cloudflare-workers",
+    "oauth"
+  ]
+}
