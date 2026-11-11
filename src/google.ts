@@ -1,4 +1,4 @@
-// Gate 4: token Google (gmail.readonly), rinnovo e chiamate minime alla Gmail API.
+// Google tokens (gmail.readonly / gmail.modify), refresh and minimal Gmail API calls (called "Gate 4" in the code history).
 // Regole: i token non compaiono mai in errori, risultati o log; gli errori sono parole fisse.
 // `fetchImpl` e' iniettabile per i test (tests/google.test.mts).
 

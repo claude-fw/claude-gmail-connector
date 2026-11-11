@@ -20,6 +20,8 @@ src/actions/confirm-page.ts  /confirm/<id> page (preview + passphrase), no Gmail
 src/google.ts             Google tokens, refresh, Gmail requests (10 s timeout, mapped errors)
 ```
 
+Note: comments and tests mention "Gate 1/3/4", the author's build milestones: Gate 1 = MCP protected by OAuth + passphrase, Gate 3 = Google identity restricted to the allowed account, Gate 4 = Gmail tokens stored and refreshed.
+
 Cross-cutting rules: no logging (`observability` disabled, no `console.*`); tokens and email content never appear in
 errors; every tool declares its minimum scope and checks it before any call; Gmail ids are validated before being used in
 a path; header values are checked against CR/LF (header injection); email content is **untrusted data**.

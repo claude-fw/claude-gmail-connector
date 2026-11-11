@@ -68,7 +68,7 @@ After a deploy: `/mcp` without a token must answer `401`, and `/debug` must answ
 | `npm test` | unit and in-memory MCP integration tests (dummy data only) |
 | `npm run typecheck` | TypeScript check |
 | `npm run dev` | local Worker on `http://localhost:8787` (copy `.dev.vars.example` to `.dev.vars`) |
-| `npm run smoke` | local end-to-end check of discovery, client registration, consent, passphrase and negative cases |
+| `npm run smoke` | local end-to-end check of discovery, client registration, consent, passphrase and negative cases. Start the Worker first in another terminal: `npx wrangler dev --var GOOGLE_CLIENT_SECRET:dummy --var GOOGLE_ALLOWED_EMAIL:test@example.com` |
 
 ## Known limitations
 

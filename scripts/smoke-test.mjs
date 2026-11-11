@@ -1,7 +1,7 @@
 // Test end-to-end LOCALE del Gate 1 contro `wrangler dev` (default http://localhost:8787).
 // Esegue: discovery -> registrazione client (DCR) -> /authorize con passphrase -> redirect a Google (Gate 4)
 // -> controlli negativi su /callback. Il login Google reale (e quindi /token e MCP con token) si prova solo su claude.ai.
-// Avvio richiesto: wrangler dev con GOOGLE_CLIENT_SECRET e GOOGLE_ALLOWED_EMAIL FITTIZI via --var (vedi README).
+// Required start: `npx wrangler dev --var GOOGLE_CLIENT_SECRET:dummy --var GOOGLE_ALLOWED_EMAIL:test@example.com` (see README, Development).
 // Non stampa mai token ne' passphrase. Legge la passphrase da .dev.vars.
 import { readFileSync } from "node:fs";
 import { createHash, randomBytes } from "node:crypto";
