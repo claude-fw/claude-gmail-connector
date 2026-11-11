@@ -76,6 +76,10 @@ After a deploy: `/mcp` without a token must answer `401`, and `/debug` must answ
 - Google can revoke the refresh token (manual revoke, six months of inactivity, password change); reconnect the connector.
 - The MCP connection expires after 30 days without a token refresh.
 - Trashing whole conversations: the rollback after an error un-trashes every message in that conversation.
+- The confirmation preview for a send shows the draft's text part. If a draft also carries an HTML part, the two could
+  in theory differ in meaning; always read the draft in Gmail before confirming. Hardening idea: show the HTML-derived text too.
+- The limit of 5 wrong passphrases applies per pending action. Guessing needs the secret confirmation link (256-bit id)
+  and the passphrase; a global lockout counter would be a sensible hardening.
 - The source code, comments, test names and the confirmation page are written in **Italian** (the author's language);
   documentation is in English. Translations of the code are welcome as pull requests.
 
